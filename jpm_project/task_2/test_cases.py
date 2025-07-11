@@ -123,30 +123,3 @@ def test_unprofitable_scenario():
     print(f"ROI per MMBtu: ${contract_value / (pump_rate * len(injection_dates)):.2f}")
     
     return contract_value
-
-def run_test_cases():
-    """
-    Run all test cases for the natural gas contract pricer.
-    Tests different scenarios including seasonal arbitrage, high frequency trading, and unprofitable cases.
-    """
-    
-    # Run each test case
-    contract_value_1 = test_seasonal_arbitrage()
-    contract_value_2 = test_high_frequency_trading()
-    contract_value_3 = test_unprofitable_scenario()
-
-    # Summary
-    print("\n\n" + "="*60)
-    print("SUMMARY OF ALL TEST CASES")
-    print("="*60)
-    print(f"Case 1 (Seasonal Arbitrage): ${contract_value_1:,.2f}")
-    print(f"Case 2 (High Frequency):    ${contract_value_2:,.2f}")
-    print(f"Case 3 (Unprofitable):      ${contract_value_3:,.2f}")
-    print("="*60)
-    
-    # Return results for potential further analysis
-    return {
-        'case_1': contract_value_1,
-        'case_2': contract_value_2,
-        'case_3': contract_value_3
-    }
